@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      华三ACL 
+      
+      
+      |
+    
+     Hexo
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">华三ACL</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2020-06-24 00:00:00
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E5%8D%8E%E4%B8%89-ACL/" title="--华三 --ACL">
+                    <b>#</b> --华三 --ACL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>ACL：access control lists控制访问列表<br>把路由器当做防火墙使用制定一系列规则。就是基于ACL<br>当想要限制一个网段访问另一个网段时，在不影响控制层面流量（不删除路由条目）的情况下，就可以基于ACL来实现。<br>基于IPv4 IPv6 IPx MAC ARP，可以直接使用acl（过滤流量）。<br>ACL是整个Internet中最低层的功能，三层功能，直接使用<br>创建一些比较高级的网络工具使用，这些高级的工具，调用ACL来实现某些高级的需求。<br>ACL用途<br>流量过滤：在路由器的接口直接调用ACL时，路由器可以限制从一个网络发出去往另一个网段的报文，可以阻止穿越路由器通行的报文<br>抓取兴趣流：当ACL被高级的工具调用一并使用的时候，acl可以定义我们想要作用的流量类型，可以使用低级的网络工具ACL来抓取兴趣流量，使用高级网络工具调用ACL，对一些兴趣流量做一些策略           使用更高级的策略嵌套acl使用<br>ACL用于过滤<br>直接把一个ACL在路由器的一个接口做一个调用，就可以实现过滤数据流量<br>一般情况，用ACL过滤数据流量时，ACL一般会包含多个访问控制规则，每个访问控制规则都称之为叫做ACE（access control entry）访问控制条目<br>一个ACL由多个ACE组成<br>实现数据层面的路由过滤：当把ACL在路由器的一个接口调用之后，这个接口想要转发报文时，需要经过每条ACE的匹配一个ACE就限制了来自什么地方去往什么地方的流量是否能通过，只有一个ACE允许流量通过的时候，这个流量才能被发送，反之，如果没有一个ACE允许通过，则直接被拒绝<br>实现控制层面的路由过滤：在VTY接口调用ACL，实现当一台PC，想要telnet ssh tftp路由器的时候，路由器会优先判断这个PC的IP地址是不是ACL匹配的，如果被匹配，就可以telnet ssh ，如果不匹配，就不能telnet ssh ，即使出示了正确的用户名和密码也不能实现远程网管<br>如果没有配置ACL任何报文都可以在网络中随意通行，只要路由器有相应的路由条目<br>直接调用，过滤流量：<br>在物理接口调用实现数据层面流量的过滤<br>在vty接口调用实现管理层面流量：telnet ssh tftp ftp<br>？制层面流量：hello报文 传递路由条目(控制路由表的生成)<br>ACL在被网络高级工具调用时，用于分类，流量抓取嵌套acl<br>ipsec vpn：整个Internet环境中最安全的一个VPN机制，实现当一个常量的流量想要通过VPN发送另一个场景时发送的流量是以加密的形式发送的<br>运行ipsec vpn需要制定该园区网哪个网段的PC发送流量去往另一个园区网的哪个网段的PC时，流量需要被保护<br>重分发：一个路由器既运行EIGRP又运行OSPF，默认两个进程不会传递路由<br>ACL可以用来抓取控制层面的路由条目<br>执行重分发时默认该路由器会把它获悉的所有来自OSPF的路由直接引入Eigrp域，使用ACL就可以让某些OSPF的路由引到Eigrp中<br>NAT：在NAT中调入ACL可以告知一台路由器什么样的PC发送的报文去往公网之前要给它做一个地址转换<br>直接在路由器的物理主接口调用ACL是可以选择调动方向的：<br>入向调用：该ACL只会作用于通过这个接口接收到的流量<br>出向调用：当路由器需要通过这个接口转发流量的时候，使用ACL调用<br>出向调用ACL（路由表高于ACL优先级）<br>路由器通过一个接口收到一个数据包，首先会查找路由表，看看是否有路由条目，如果没有报文直接被丢弃，如果有相应的路由条目选择适当的出战接口准备转发，然后查看该接口有没有调用出站方向的ACL，如果没有，报文就直接发走；如果有，就进行ACL的匹配，如果有一条ACL匹配就发送，没有就丢弃<br>只能过滤穿越流量，不能过滤路由器自己生成的流量<br>入向调用ACL（ACL优先级高于路由表）<br>如果在路由器入站方向调用ACL时，路由器收到一个数据包时先匹配ACL再查路由表；<br>可以实现所有接收流量的过滤。<br>ACL的匹配原则<br>ACL有多个ACE在匹配的时候按照一个顺序来一条一条匹配<br>这个顺序取决于每个ACE的序列号，默认创建一个ACL所写的第一个ACE的序列号缺省为10，第二个为20，第三个为30<br>ACL创建出来之后，所有的ACE都是按照序列号从小到大排序的<br>最小的在最上面，最大的在最下面<br>当使用ACL来匹配数据包时，会从上往下匹配<br>当使用ACL来匹配报文时，只要有一个ACE匹配到报文，这个ACE会立即执行策略，接下来不管还有多少个ACE都不再继续匹配<br>一个ACL至少需要配一个ACE，通过命令来配置的ACE称为显式ACE<br>隐式ACE永远为该ACL序列最大的ACE，默认隐式ACE能够匹配来自于任何源去往任何目的的任何流量，这个隐式ACE只要匹配到流量，该流量一定会被丢弃 Deny<br>一个报文进入路由器ACL怎样匹配？<br>首先匹配第一个ACE看执行的结果是Permit还是Deny<br>如果匹配到并且是Permit，就会转发，Deny直接丢弃<br>如果匹配到最后一条时，直接丢弃<br>Types  of  ACLS<br>基于IPV4的ACL<br>标准的ACL（Standard ACL）：只能基于流量的源IP地址来决定是否允许这个流量通行<br>只能基于流量的源来允许或过滤任何流量<br>过滤颗粒度极大（原因要么允许你来自某个源的一切流量，要么拒绝你来自某个源的一切流量<br>扩展的ACL（Extended ACL）：能基于源目IP地址来决定是否允许这个流量通行<br>可以允许或拒绝某些协议的流量，可以同时基于源目IP地址，<br>上层协议号以及源目端口号来实现流量的精确控制<br>创建标准ACL和扩展ACL的方式<br>以数字的方式来创建ACL  ACL的名称为纯阿拉伯数字<br>以命名式的方式来创建ACL  可包含数字，字符，符号等一系列信息<br>当ACL的编号为纯数字时 1-99，1300-1999  标准ACL<br>                        100-199，2000-2699  扩展ACL<br>命名式的ACL，可手工通过来选择该ACL是标准ACL还是扩展ACL，任意选择名称 后面跟着standard 或者extended 来指定标准还是扩展<br>IOS版本12.3以上创建ACL的灵活性<br> (1)12.3版本前，某个ACL的ACE写错了，只能把整个ACL删除，不能单独删除ACE<br>(2)12.3版本后，可以单独把ACE删除，再重新创建<br>(1)12.3版本前，默认写的第一个ACE为10，不能改变，每个ACE都间隔为10s，不能在中间添加<br>(2)12.3版本后，可以指定ACE的序列号来创建<br>配置ACL的原则<br>需要根据需求创建相应的标准ACL和扩展ACL来过滤想要过滤的流量<br>创建完要调用时，一台路由器的一个接口基于一个协议站以及一个方向只能调用一个ACL，路由器的一个接口入向可以调用一个ACL，出向也可以调用一个ACL<br>ACL匹配时，使用序列号自顶向下匹配<br>每一个ACL的最后端总会有一个隐藏Deny任何的语句，所以想要创建一个ACL，在显式的ACE中至少包含一条Permit语句<br>ACL使用全局模式创建，创建完之后在接口配置模式入向或出向调用，过滤数据层面的流量，<br>ACL可以过滤穿越路由器的流量<br>当调用标准ACL时，尽可能地靠近目的地址调用<br>当调用扩展ACL时，尽可能地靠近流量的源调用<br>静态ACL与动态ACL<br>标准ACL扩展ACL都成为静态ACL，当一个接口调用静态ACL后，这个接口自从调用该ACL开始，这个静态ACL就会一直工作，永远也不会停止<br>动态ACL<br>要创建动态ACL，里面只能包含一条动态ACE，默认这条动态ACE是不能工作的，需要动作触发<br>在路由器的一个接口调用了一个带有动态ACE的ACL，默认动态的ACE不会工作，可以用PC Telnent到路由器出示正确的用户名和密码，路由器判断这个PC是合法的PC，这个路由器会为这个PC自动开放一个动态的ACE，让这个ACE暂时性的工作，当不用时，经过一段时间会不工作<br>Ip  access-list  extended  X （名字）创建扩展ACL<br>Permit  [协议]  [SIP] 反码 [DIP] 反码  允许什么协议的从…到…<br>Dymic  test  permit  ip  host  [SIP]  host  [DIP]  动态ACL<br>Host 就相当于反码0.0.0.0<br>Autocommand  X  password  X  创建本地认证库<br>在接口调用先创建认证<br>Line vty 0 4<br>Autocommand access-enable host<br>Login local<br>进入另一个接口调用<br>Ip access-group X in  在入站方向调用<br>删除ACL  no ip access-list extended X<br>基于时间的ACL<br>Time-range X （名字）<br>Absolute start 时：分：秒 日 月（英语标识）年 end时：分：秒 日 月 年  立即生效时间<br>全局：access-list X（数字） permit  [协议]  [SIP] 反码 [DIP] 反码 time-range X 启用时间 /echo 可永久ping通<br>进接口调用 ip access-group X in<br>特权：set clock 时：分：秒 日 月（英语标识） 年<br>Ping X.X.X.X repeat X 可以pingX次<br>自反ACL<br>内网访问外网直接发送，外网需要验证<br>同一个接口调用，不同方向<br>中间设备<br>Ip access-list extend [名字] （不能为纯数字）<br>Permit ip[SIP] 0.0.0.255 [DIP] 0.0.0.255 reflect X 自反ACE名字<br>Ip access-list extend [名字] （不能为纯数字）<br>Permit ip host [SIP] host [DIP] 指定外网可以进内网<br>Evaluate X (自反ACE的名字)<br>进靠近外网的接口调用<br>出方向调用自反的ACL<br>如方向调用外网的ACL<br>默认内网ping外网可以通，外网ping内网不通<br>反码全为0用host，全为1用any<br>标准ACL使用IP地址和反码匹配流量的源<br>扩展ACL可以使用IP地址+反码+IP地址+反码来匹配流量的源和目的<br>标准的IPV4 ACL 纯三层工具，只会抓取三层报头的SIP地址<br>创建ACL：access-list 数字 permit/deny [SIP] 反码<br>调用物理接口：ip access-group 数字 in（入向）/out（出向）<br>在vty调用：access-class 数字 in<br>做管理层面的控制<br>Access-list 数字 permit 192.168.1.0 0.0.0.255<br>Line vty 0 4<br>Access-class 数字 in<br>只能被192.168.1.0网段的PC进行网管<br>扩展的IPV4 ACL 四层工具 即可匹配三层信息又可匹配四层信息<br>可以基于三层报头中的SIP，DIP地址或者协议号<br>如果是TCP/UDP报文还可以基于源目端口号来做流量的允许或拒绝的工作<br>创建：access-list 数字 permit/deny 协议号 SIP 反码 源反码 源端口号  （如果没写，代表任意的端口号都可以匹配） DIP 目的反码 目的端口号<br>对于TCP或UDP某些高级服务流量做允许或过滤一般只会写目的端口号<br>Ip access-group 数字 in/out 物理接口调用<br>Access-list 数字 permit ip any any  ip代表的任何流量<br>允许来自任何源去往任何目的的任何流量<br>Eq代表等于<br>Show ip access-list 查看状态<br>Show time-range 查看设置的时间<br>版本12.3以上的命名式ACL<br>Ip access-list standard/extended name（可以为纯数字）<br>序列号 permit/deny SIP反码  标准<br>序列号 permit/deny SIP反码 DIP 反码 扩展<br>Ip access-group name in/out 调用<br>Show access-list 显示ACL<br>如果要增加ACE或删除ACL要进入ACL中<br>ip access-list st name<br>X permit SIP<br>No X<br>扩展 ip access-list exended name<br>增加 X permit 协议号 SIP 反码 DIP 反码 eq x<br>Permit直接调用代表允许流量通过<br>       被高级工具调用时时匹配，仅仅用来抓取兴趣流<br>运用zone-based policy firewall 把路由器完全模拟为防火墙<br>zone-based就是路由器上能使用的基于自反ACL原理的最高级的工具<br>中间路由器配置<br>定义zone：Zone security name1 内网<br>Zone security name2 外网<br>定义class-map：Class-map type inspect match-all Icmp（name）<br>                Match protocol icmp<br>Exit<br>Class-map type inspect match-all HTTP（name）<br>                Match protocol http<br>Exit<br>Class-map type inspect match-all FTP（name）<br>                Match protocol ftp<br>Exit<br>Class-map type inspect match-all telnet<br>                Match protocol telnet<br>Exit<br>policy-map type inspect match-all name<br>class type inspect ICMP<br>inspect<br>class type inspect Telnet<br>inspect<br>class type inspect http<br>inspect<br>class type inspect ftp<br>inspect<br>exit<br>做路由策略<br>Zone-pair security 名字 source name2<br>Service-policy type inspect name<br>允许内网访问外网，但是流量全部被监测<br>Exit<br>Zone-pair security 名字 source name1 destination name2<br>Service-policy type inspect name<br>Exit<br>把相应的接口划入相应的zone<br>连接内网的接口<br>Zone-member security name1<br>连接外网的接口<br>Zone-member security name2<br>挂上之后，两者发送的流量都会被审计，可以基于审计信息来做一些比较高端的策略，比如：发现外网想要攻击内网时，可以直接把流量干掉<br> <br>已使用 Microsoft OneNote 2016 创建。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2020/06/01/LSA/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2020-06-24 00:00:00
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E5%8D%8E%E4%B8%89-ACL/" title="--华三 --ACL">
+                        <b>#</b> --华三 --ACL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2020/12/27/hello-world/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+      
+  <div class="search-icon" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+    </div>
+  </body>
+</html>
