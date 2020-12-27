@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
   <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   
   <title>
     
-      Friend 
+      朋友 
       
       
       |
@@ -60,7 +60,7 @@
         <img src="/images/avatar.png" alt="">
       
     </a>
-    <div class="nickname"><a href="/">Oranges</a></div>
+    <div class="nickname"><a href="/">瀚霖</a></div>
   </div>
   <div class="navbar">
     <ul>
@@ -116,69 +116,53 @@ MathJax = {
   
 
   
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">friends</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Update time"></i>
-          2020-12-27 16:33:23
-        </span>
-        
-      </div>
-      <div class="markdown-body">
-        
-      </div>
+  <!-- 朋友页 url形式：https://yoursite/friends/ -->
+  <div class="container friend-index">
+    <div class="friend-list">
       
-        <div class="prev-or-next">
-          <div class="post-foot-next">
+        <div class="friend-list-item">
+          <span class="nickname">@ 心情</span>
+          <a href="" target="_blank">
+            <span class="site-path"></span>
+          </a>
+          <p class="card-meta">
+            不畏将来，如此，安好
+          </p>
+        </div>
+      
+        <div class="friend-list-item">
+          <span class="nickname">@ Hexo</span>
+          <a href="https://hexo.io/" target="_blank">
+            <span class="site-path">https://hexo.io/</span>
+          </a>
+          <p class="card-meta">
             
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Update time"></i>
-              2020-12-27 16:33:23
-            </span>
-            
-          </div>
-          <div class="post-foot-prev">
-            
-          </div>
+          </p>
         </div>
       
     </div>
-    
-
-    
-      <div class="comments-container">
-        
-
-
-
-
-
-      </div>
-    
+    <div class="markdown-body">
+      
+    </div>
   </div>
+  
 
+  
+
+  
 
         <div class="footer">
   <div class="social">
     <ul>
       
         <li>
-          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/xuehanlin">
             <i class="iconfont icon-github"></i>
           </a>
         </li>
       
         <li>
-          <a title="email" href="">
+          <a title="email" href="1346541136@qq.com">
             <i class="iconfont icon-envelope"></i>
           </a>
         </li>
@@ -218,13 +202,13 @@ MathJax = {
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+        <a target="_blank" rel="noopener" href="https://github.com/xuehanlin">Copyright © Oranges 2020</a>
         
     </div>
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        <a target="_blank" rel="noopener" href="https://github.com/xuehanlin">Theme by Oranges | Powered by Hexo</a>
         
     </div>
   
@@ -259,7 +243,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+          <input type="text" class="search-input" id="search-input" placeholder="搜。。">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -311,7 +295,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -407,7 +391,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
@@ -415,9 +399,9 @@ MathJax = {
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
           } else {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
           }
         }
       });

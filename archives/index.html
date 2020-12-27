@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
   <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   
   <title>
     
-      Friend 
+      归档 
       
       
       |
@@ -60,7 +60,7 @@
         <img src="/images/avatar.png" alt="">
       
     </a>
-    <div class="nickname"><a href="/">Oranges</a></div>
+    <div class="nickname"><a href="/">瀚霖</a></div>
   </div>
   <div class="navbar">
     <ul>
@@ -95,90 +95,90 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
 
-<!-- LaTex Display -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  }
-};
-</script>
+<!-- last: 按年份把文章分组，当前遍历到的年份 -->
+<!-- now: 当前遍历到的文章的发布年份 -->
 
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">friends</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Update time"></i>
-          2020-12-27 16:33:23
-        </span>
-        
-      </div>
-      <div class="markdown-body">
-        
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Update time"></i>
-              2020-12-27 16:33:23
-            </span>
-            
-          </div>
-          <div class="post-foot-prev">
-            
-          </div>
+<div class="container archives">
+  <div class="post-list">
+    
+        <!-- 后续文章的发布年份呈现 -->
+        <div class="content-title">
+          <h2>
+            <span>2020</span>
+          </h2>
         </div>
       
-    </div>
+      <div class="post-item" title="Hello World">
+        <div class="time-m-d">12-27</div>
+        <div class="title">
+          <a href="/2020/12/27/hello-world/">
+            <span>Hello World</span>
+          </a>
+        </div>
+      </div>
     
-
+      <div class="post-item" title="华三ACL">
+        <div class="time-m-d">06-24</div>
+        <div class="title">
+          <a href="/2020/06/24/H3C-ACL/">
+            <span>华三ACL</span>
+          </a>
+        </div>
+      </div>
     
-      <div class="comments-container">
-        
-
-
-
-
-
+      <div class="post-item" title="LSA">
+        <div class="time-m-d">06-01</div>
+        <div class="title">
+          <a href="/2020/06/01/LSA/">
+            <span>LSA</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="python列表概述">
+        <div class="time-m-d">03-27</div>
+        <div class="title">
+          <a href="/2020/03/27/python%E5%88%97%E8%A1%A8%E6%A6%82%E8%BF%B0/">
+            <span>python列表概述</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="简述git命令">
+        <div class="time-m-d">03-02</div>
+        <div class="title">
+          <a href="/2020/03/02/%E7%AE%80%E8%BF%B0hexo%E5%91%BD%E4%BB%A4/">
+            <span>简述git命令</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="第一次搭建个人博客">
+        <div class="time-m-d">02-14</div>
+        <div class="title">
+          <a href="/2020/02/14/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+            <span>第一次搭建个人博客</span>
+          </a>
+        </div>
       </div>
     
   </div>
-
+</div>
 
         <div class="footer">
   <div class="social">
     <ul>
       
         <li>
-          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/xuehanlin">
             <i class="iconfont icon-github"></i>
           </a>
         </li>
       
         <li>
-          <a title="email" href="">
+          <a title="email" href="1346541136@qq.com">
             <i class="iconfont icon-envelope"></i>
           </a>
         </li>
@@ -218,13 +218,13 @@ MathJax = {
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+        <a target="_blank" rel="noopener" href="https://github.com/xuehanlin">Copyright © Oranges 2020</a>
         
     </div>
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        <a target="_blank" rel="noopener" href="https://github.com/xuehanlin">Theme by Oranges | Powered by Hexo</a>
         
     </div>
   
@@ -259,7 +259,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+          <input type="text" class="search-input" id="search-input" placeholder="搜。。">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -311,7 +311,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -407,7 +407,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
@@ -415,9 +415,9 @@ MathJax = {
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
           } else {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
           }
         }
       });
