@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021/1 
+      sqlmap-转载 
       
       
       |
@@ -95,129 +95,174 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">sqlmap-转载</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2021-04-20 00:00:00
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E5%AE%89%E5%85%A8/" title="安全">
+                    <b>#</b> 安全
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>1.sqlmap是什么</p>
+<p>sqlmap是一款自动化的 sql 注入工具,闻名程度匹敌几年前的啊 D，他的功能很多，比如判断是否可以注入，发现，然后利用漏洞，里面也包含了许多绕 waf 的脚本，不过近两年都绕不了了，在 18 年的时候还勉强可以绕过。他支持许多数据库：MySQL，Microsoft sql server，access，sqllite，Oracle，postgreSQL，IBM DB2，sybase，SAP maxdb。当然我都是百度的这些。</p>
+<p>sqlmap也是是一款用来检测与利用SQL注入漏洞的免费开源工具，有一个非常棒的特性，即对检测与利用的自动化处理(数据库指纹、访问底层文件系统、执行命令)，它具有功能强大的检测引擎,针对各种不同类型数据库的渗透测试的功能选项，包括获取数据库中存储的数据，访问操作系统文件甚至可以通过外带数据连接的方式执行操作系统命令SQLmap命令选项被归类为目标(Target)选项、请求(Request)选项、优化、注入、检测、技巧(Techniques)、指纹、枚举等。</p>
+<p>sqlmap 有几种sql注入方式：布尔盲注，时间盲注，联合查询注入，报错注入，堆查询注入。</p>
+<p>sqlmap支持五种不同的注入模式：</p>
+<p>基于布尔的盲注，即可以根据返回页面判断条件真假的注入；基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行(即页面返回时间是否增加)来判断；基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中；联合查询注入，可以使用union的情况下的注入；堆查询注入，可以同时执行多条语句的执行时的注入。</p>
+<p>2.安装 sqlmap</p>
+<p>(1)windows下安装</p>
+<p>sqlmap 的安装需要 Python 环境，不支持 Python3，可能需要一些组件包的支持，需要有python2.7.x或者2.6.x环境支持。可以去官网直接下载 Python，然后我们去 sqlmap 的官网，网址是:<a target="_blank" rel="noopener" href="http://www.sqlmap.org/">www.sqlmap.org</a></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9d983bfea8000668fe8ece2b105a18d3.png" alt="9d983bfea8000668fe8ece2b105a18d3.png"></p>
+<p>下载最新的 sqlmap，然后下载后，将压缩包复制到上 Python27 目录下，然后解压下来，然后我们打开 sqlmap，当然是必须在根目录下的，可不要直接在 cmd 打 sqlmap.py</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/886c46df98e388a6a178c9910c658f48.png" alt="886c46df98e388a6a178c9910c658f48.png"></p>
+<p>安装完成</p>
+<p>(2)kali默认安装sqlmap</p>
+<p>3.sqlmap 初步入门</p>
+<p>(1)判断是否存在注入</p>
+<p>一个网站是否有注入点，我个人认为要依照三个点：1.是否有可控参数，就是 id=1，这个 1 就是参数2.是否可以在数据库执行3.是否可以返回数据</p>
+<p>如果有了这三条要点就可以了</p>
+<p>我们假如拿到一个站，首先要看他的网页，先不提伪静态的站。假如注入点是 xxx.com/xxx?id=1假如注入点是这个，我们就拿 sqlmap 判断是否存在注入</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1fe45a1b5cfc61c4254cee96e8a0a392.png" alt="1fe45a1b5cfc61c4254cee96e8a0a392.png"></p>
+<p>​                               查询是否存在注入</p>
+<p>然后我们如果遇到注入点的参数不为 1 的情况时，就是大于 1 时，需要加双引号</p>
+<p>sqlmap.py -u “xxx.com/xxx?id=1”</p>
+<p>然后我们可以看到，在第一行显示数据库可能是 MySQL，然后我这个出的信息太少，因为以前日过·······大家在找注入点时，检测的过程中会询问你什么问题，你就回车就可以了。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ee011e078b6dd9b86130e59df9cb662b.png" alt="ee011e078b6dd9b86130e59df9cb662b.png"></p>
+<p>​                             显示存在注入</p>
+<p>(2)判断请求数据包中是否存在注入</p>
+<p>sqlmap 有个功能，就是可以从 txt 中获取 http 请求，这样就可以不设置一些参数，比如 cookie，我们怎么弄到请求的数据包呢，就拿 burp 抓包，至于怎么抓包我会在下面提到的，然后我们用下面这条指令</p>
+<p>sqlmap.py -r desktop/38.5wocnm.txt这条指令我也不怎么经常用，他是存在 cookie 注入才使用的。</p>
+<p>(3)查询所有数据库</p>
+<p>当 sqlmap 确认可以注入时，我们就可以查询所有数据库了，前提是你的用户有权限读取所有数据库列表时，才可以列出是数据库，命令如下</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 –dbs</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/33968ec4a9ab3473f81d6eb522c46689.png" alt="33968ec4a9ab3473f81d6eb522c46689.png"></p>
+<p>​                              查询数据库</p>
+<p>我们可以看到，查询了 5 个数据库以及列出了库名，我们在继续注入时，要将–dbs 改为-D xxx，记住要是大写，意思是在 xxx 数据库查询</p>
+<p>(4)获取数据库的表名</p>
+<p>这个命令是我们前提下已经查询量数据库后，然后我们在查询数据库内的表名，命令如下</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 -D stormgroup –tables</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/888db29b3ed51f8bce50faf9908dc1c4.png" alt="888db29b3ed51f8bce50faf9908dc1c4.png"></p>
+<p>​                                 查询表名</p>
+<p>可以看到我们查询出了两个表名</p>
+<p>(5)查询表名的字段名</p>
+<p>前提还是在我们获取了表名时，查询表内的字段名，当然我们还是跟上面的一样，将 tables 改为大写 T，命令如下：</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 -D stormgroup -T member –columns</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9407231896a5a097f77c5f4329ba0399.png" alt="9407231896a5a097f77c5f4329ba0399.png"></p>
+<p>​                             获取具体的字段内容</p>
+<p>(6)获取字段内容</p>
+<p>我们查询完字段内容，下一步就是获取字段内容了，我们就看 member 表中的 name 和 password 的值，命令如下：</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 -D stormgroup -T member -C name,password –dump</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ab698edccc3066de4967041898060305.png" alt="ab698edccc3066de4967041898060305.png"></p>
+<p>​                             获取具体的字段内容</p>
+<p>可以看到列出了账号密码，并且密码是用 md5 加密的</p>
+<p>(7)查询数据库名称</p>
+<p>用下面这条指令查询当前网站使用的数据库</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 –current-db</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a6dffb63381ead2b8bdb8a9cbb88ce78.png" alt="a6dffb63381ead2b8bdb8a9cbb88ce78.png"></p>
+<p>​                              列出当前数据库用户</p>
+<p>(9)获取数据库的所有用户</p>
+<p>这个命令前提是当前用户有权限读取所有用户的表的权限，命令如下：</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 –users</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b2220c4b6c2b7a05a42448abb9ae7f05.png" alt="b2220c4b6c2b7a05a42448abb9ae7f05.png"></p>
+<p>​                            列出数据库用户</p>
+<p>可以看到我们的用户账号是 root，root 是最高权限</p>
+<p>(10)获取数据库用户的密码</p>
+<p>这个指令是列出数据库用户的密码，命令如下:</p>
+<p>sqlmap.py -u xxx.com/xxx?id=1 –password</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/632364934ba8741229564c895eaff319.png" alt="632364934ba8741229564c895eaff319.png"></p>
+<p>​                           查询数据库用户密码</p>
+<p>以上就是 sqlmap 入门了，接下来我们讲一下更高层面</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/04/20/%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80/sql%E6%B3%A8%E5%85%A5%E4%BD%A0%E9%97%AE%E6%88%91%E7%AD%94/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2021-04-20 00:00:00
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E5%AE%89%E5%85%A8/" title="安全">
+                        <b>#</b> 安全
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="sqlmap-转载">
-        <div class="time-m-d">04-20</div>
-        <div class="title">
-          <a href="/2021/04/20/%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80/sqlmap/">
-            <span>sqlmap-转载</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="sql你问我答--转载">
-        <div class="time-m-d">04-20</div>
-        <div class="title">
-          <a href="/2021/04/20/%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80/sql%E6%B3%A8%E5%85%A5%E4%BD%A0%E9%97%AE%E6%88%91%E7%AD%94/">
-            <span>sql你问我答--转载</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="疑问">
-        <div class="time-m-d">04-20</div>
-        <div class="title">
-          <a href="/2021/04/20/%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80/%E7%96%91%E9%97%AE/">
-            <span>疑问</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="渗透基础">
-        <div class="time-m-d">04-20</div>
-        <div class="title">
-          <a href="/2021/04/20/%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/">
-            <span>渗透基础</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="kali汉化">
-        <div class="time-m-d">01-26</div>
-        <div class="title">
-          <a href="/2021/01/26/kali%E6%B1%89%E5%8C%96/">
-            <span>kali汉化</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2020</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">12-27</div>
-        <div class="title">
-          <a href="/2020/12/27/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="华三ACL">
-        <div class="time-m-d">06-24</div>
-        <div class="title">
-          <a href="/2020/06/24/H3C-ACL/">
-            <span>华三ACL</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="LSA">
-        <div class="time-m-d">06-01</div>
-        <div class="title">
-          <a href="/2020/06/01/LSA/">
-            <span>LSA</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="python列表概述">
-        <div class="time-m-d">03-27</div>
-        <div class="title">
-          <a href="/2020/03/27/python%E5%88%97%E8%A1%A8%E6%A6%82%E8%BF%B0/">
-            <span>python列表概述</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="简述git命令">
-        <div class="time-m-d">03-02</div>
-        <div class="title">
-          <a href="/2020/03/02/%E7%AE%80%E8%BF%B0hexo%E5%91%BD%E4%BB%A4/">
-            <span>简述git命令</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="第一次搭建个人博客">
-        <div class="time-m-d">02-14</div>
-        <div class="title">
-          <a href="/2020/02/14/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-            <span>第一次搭建个人博客</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
