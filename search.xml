@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DPS检测</title>
+      <link href="2021/06/09/DPS%E8%A7%84%E5%88%99%E5%BA%93/"/>
+      <url>2021/06/09/DPS%E8%A7%84%E5%88%99%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<p>1.nmap扫描<br>http.user-agent==<em>nmap.org</em> || http.uri == <em>nmaplowercheck</em><br>2.sqlmap扫描<br>http.user-agent==<em>sqlmap.org</em><br>3.zgrab扫描<br>http.user-agent == <em>zgrab/</em><br>4.后台扫描<br>(http.uri == <em>admin</em> || http.uri==<em>phpmyadmin</em> || http.uri==<em>wp-admin</em>) &amp;&amp; (http.uri == <em>index</em> || http.uri==<em>php</em> || http.uri==<em>asp</em> || http.uri==<em>aspx</em> || http.uri==<em>jsp</em>)<br>5.敏感信息扫描<br>http.uri==<em>readme.txt</em> || http.uri==<em>robots.txt</em> || http.uri == “<em>.php.bak</em>“ || http.uri == “<em>/bin/cat</em>“ || http.uri == <em>/webdav/</em><br>http.statuscode == 404 &amp;&amp; (http.uri == “<em>.sql” || http.uri == <em>.zip || http.uri == *.tar || http.uri == *.rar || http.uri == *.7z || http.uri == *.bak || http.uri == *.gz || http.uri == *.git</em><br>6.sql注入<br>http.uri==<em>infomation_schema</em> || (http.uri==<em>select</em> &amp;&amp; http.uri==<em>from</em>)<br>(http.uri==<em>length</em> || http.uri==<em>ascii</em> || http.uri==<em>substr</em> || http.uri==<em>sleep</em> &amp;&amp; (http.uri==<em>database</em> || http.uri=<em>table</em>)<br>7.XSS<br>(http.uri==<em>script</em> &amp;&amp; http.uri==<em>alert</em>) || (http.uri==<em>img</em> &amp;&amp; http.uri==<em>onerror</em>) || (http.uri==<em>javascript</em> &amp;&amp; http.uri==<em>alert</em>)<br>8.文件读取<br>http.uri==</em>../* &amp;&amp; (http.uri==<em>passwd</em> || http.uri==<em>shadow</em>)        linux读文件<br>(http.uri==<em>file://</em> || http.uri == <em>../</em>) &amp;&amp; (http.uri == <em>php.ini</em> || http.uri==<em>boot.ini</em> || http.uri==<em>my.ini</em>)   //Windows<br>9.远程文件包含<br>(http.uri==<em>?file</em> || http.uri==<em>?filename</em>) &amp;&amp; (http.uri==<em>file://</em> || http.uri==<em>php://</em> || http.uri==<em>zip://</em> || http.uri==<em>data://</em>)<br>10.Webshell<br>(http.uri==<em>GET</em> || http.uri==<em>POST</em>) &amp;&amp; http.uri==<em>eval</em><br>11.命令执行<br>(http.uri==<em>cat</em> &amp;&amp; http.uri==<em>passwd</em>) || (http.uri==<em>/bin/bash</em> &amp;&amp; http.uri==<em>nc</em>) || (http.uri==”<em>bash -i</em>“ &amp;&amp; http.uri==<em>/dev/tcp</em>) || (http.uri==<em>rm</em> &amp;&amp; http.uri==<em>rf</em> &amp;&amp; http.uri==<em>wget</em>)<br>12.端口扫描<br>databytes == 0 &amp;&amp; packets &lt; 10 &amp;&amp; port.dst==[22,23,25,53,143,161,389,445,1433,1521,3306,3389,5432,6379,7001,8069,8080,8089]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DPS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MS17-010远程溢出（CVE-2017-0143）</title>
       <link href="2021/05/25/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/MS17-010%E8%BF%9C%E7%A8%8B%E6%BA%A2%E5%87%BA%EF%BC%88CVE-2017-0143%EF%BC%89/MS17-010%E8%BF%9C%E7%A8%8B%E6%BA%A2%E5%87%BA%EF%BC%88CVE-2017-0143%EF%BC%89/"/>
       <url>2021/05/25/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/MS17-010%E8%BF%9C%E7%A8%8B%E6%BA%A2%E5%87%BA%EF%BC%88CVE-2017-0143%EF%BC%89/MS17-010%E8%BF%9C%E7%A8%8B%E6%BA%A2%E5%87%BA%EF%BC%88CVE-2017-0143%EF%BC%89/</url>
